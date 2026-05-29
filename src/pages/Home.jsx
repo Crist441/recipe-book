@@ -49,9 +49,12 @@ export default function Home() {
       <div className="relative w-full rounded-2xl overflow-hidden mb-6 bg-gradient-to-r from-orange-50 to-amber-50 dark:from-zinc-900 dark:to-zinc-800 flex items-center px-8 py-6" style={{minHeight: '240px'}}>
         {/* Left: text */}
         <div className="flex flex-col justify-center z-10" style={{maxWidth: '60%'}}>
-          <h1 className="font-heading text-5xl font-bold italic leading-tight mb-1 text-accent">
+          <h1 className="font-heading text-5xl font-bold italic leading-tight mb-2 text-accent">
             Chef Lumi
           </h1>
+          <p className="font-body text-foreground text-base font-medium mb-3 leading-snug" style={{maxWidth: '340px'}}>
+            Transform your ingredients into extraordinary meals with Chef Lumi.
+          </p>
           <p className="font-body text-muted-foreground text-sm mb-4">
             {recipes.length} {recipes.length === 1 ? "recipe" : "recipes"} saved
           </p>
