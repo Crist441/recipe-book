@@ -53,7 +53,7 @@ export default function Home() {
             Chef Lumi
           </h1>
           <p className="font-body text-foreground text-sm font-medium mb-2 leading-snug">
-            Transform your ingredients into extraordinary meals with Chef Lumi.
+            Transform ingredients into meals, and meals into lasting memories.
           </p>
           <p className="font-body text-muted-foreground text-xs mb-3">
             {recipes.length} {recipes.length === 1 ? "recipe" : "recipes"} saved
