@@ -49,9 +49,8 @@ export default function Home() {
       <div className="relative w-full rounded-3xl overflow-hidden mb-8 bg-gradient-to-r from-orange-50 to-amber-50 dark:from-zinc-900 dark:to-zinc-800 flex items-stretch" style={{minHeight: '380px'}}>
         {/* Left: text */}
         <div className="flex-1 flex flex-col justify-center p-10 z-10">
-          <h1 className="font-heading text-6xl font-bold italic leading-tight mb-2">
-            <span className="text-foreground">Chef </span>
-            <span className="text-accent">Lumi</span>
+          <h1 className="font-heading text-6xl font-bold italic leading-tight mb-2 text-accent">
+            Chef Lumi
           </h1>
           <p className="font-body text-muted-foreground text-sm mb-6">
             {recipes.length} {recipes.length === 1 ? "recipe" : "recipes"} saved
