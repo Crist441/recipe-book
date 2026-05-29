@@ -48,11 +48,11 @@ export default function Home() {
       {/* Hero */}
       <div className="relative w-full rounded-2xl overflow-hidden mb-5 bg-gradient-to-r from-orange-50 to-amber-50 dark:from-zinc-900 dark:to-zinc-800 flex items-center px-7 py-4" style={{minHeight: '160px'}}>
         {/* Left: text */}
-        <div className="flex flex-col justify-center z-10" style={{maxWidth: '58%'}}>
+        <div className="flex flex-col justify-center z-10 flex-1 pr-36">
           <h1 className="font-heading text-4xl font-bold italic leading-tight mb-1 text-accent">
             Chef Lumi
           </h1>
-          <p className="font-body text-foreground text-sm font-medium mb-2 leading-snug" style={{maxWidth: '300px'}}>
+          <p className="font-body text-foreground text-sm font-medium mb-2 leading-snug">
             Transform your ingredients into extraordinary meals with Chef Lumi.
           </p>
           <p className="font-body text-muted-foreground text-xs mb-3">
