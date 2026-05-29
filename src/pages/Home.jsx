@@ -75,13 +75,13 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Right: Chef Lumi photo — full portrait */}
-        <div className="flex-shrink-0 flex items-end justify-end" style={{width: '280px'}}>
+        {/* Right: Chef Lumi photo */}
+        <div className="flex-shrink-0 flex items-stretch" style={{width: '300px'}}>
           <img
-            src="/chef-lumi-hero.png"
+            src="/chef-lumi-hero2.png"
             alt="Chef Lumi"
-            className="w-full h-full object-cover"
-            style={{objectPosition: 'center top', height: '380px'}}
+            className="w-full object-cover"
+            style={{objectPosition: 'center center'}}
           />
         </div>
       </div>
