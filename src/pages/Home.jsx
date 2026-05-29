@@ -44,15 +44,15 @@ export default function Home() {
   });
 
   return (
-    <motion.main initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} className="max-w-5xl mx-auto px-6 py-8">
+    <motion.main initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} className="max-w-5xl mx-auto px-6 py-6">
       {/* Hero */}
-      <div className="relative w-full rounded-3xl overflow-hidden mb-8 bg-gradient-to-r from-orange-50 to-amber-50 dark:from-zinc-900 dark:to-zinc-800 flex items-stretch" style={{minHeight: '300px'}}>
+      <div className="relative w-full rounded-2xl overflow-hidden mb-6 bg-gradient-to-r from-orange-50 to-amber-50 dark:from-zinc-900 dark:to-zinc-800 flex items-center px-8 py-5 gap-6">
         {/* Left: text */}
-        <div className="flex-1 flex flex-col justify-center p-10 z-10">
-          <h1 className="font-heading text-6xl font-bold italic leading-tight mb-2 text-accent">
+        <div className="flex-1 flex flex-col justify-center z-10">
+          <h1 className="font-heading text-5xl font-bold italic leading-tight mb-1 text-accent">
             Chef Lumi
           </h1>
-          <p className="font-body text-muted-foreground text-sm mb-6">
+          <p className="font-body text-muted-foreground text-sm mb-4">
             {recipes.length} {recipes.length === 1 ? "recipe" : "recipes"} saved
           </p>
           <div className="flex items-center gap-2 flex-wrap">
@@ -60,7 +60,7 @@ export default function Home() {
               <button
                 onClick={handleLoadSamples}
                 disabled={loading}
-                className="flex items-center gap-2 bg-muted text-foreground font-body font-semibold text-sm px-4 py-2.5 rounded-xl hover:bg-muted/80 transition-colors disabled:opacity-60"
+                className="flex items-center gap-2 bg-muted text-foreground font-body font-semibold text-sm px-4 py-2 rounded-xl hover:bg-muted/80 transition-colors disabled:opacity-60"
               >
                 <Sparkles className="w-4 h-4 text-accent" />
                 {loading ? "Loading…" : "Load Sample Recipes"}
@@ -68,7 +68,7 @@ export default function Home() {
             )}
             <Link
               to="/add"
-              className="flex items-center gap-2 bg-accent text-accent-foreground font-body font-semibold text-sm px-5 py-2.5 rounded-xl hover:bg-accent/90 transition-colors"
+              className="flex items-center gap-2 bg-accent text-accent-foreground font-body font-semibold text-sm px-5 py-2 rounded-xl hover:bg-accent/90 transition-colors"
             >
               <Plus className="w-4 h-4" /> New Recipe
             </Link>
@@ -76,12 +76,12 @@ export default function Home() {
         </div>
 
         {/* Right: Chef Lumi photo */}
-        <div className="flex-shrink-0 flex items-center justify-end p-4">
+        <div className="flex-shrink-0">
           <img
             src="/chef-lumi-hero2.png"
             alt="Chef Lumi"
             className="rounded-2xl object-cover shadow-md"
-            style={{width: '200px', height: '220px', objectPosition: 'center top'}}
+            style={{width: '160px', height: '175px', objectPosition: 'center top'}}
           />
         </div>
       </div>
