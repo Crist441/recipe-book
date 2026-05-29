@@ -46,7 +46,7 @@ export default function Home() {
   return (
     <motion.main initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} className="max-w-5xl mx-auto px-6 py-8">
       {/* Hero */}
-      <div className="relative w-full rounded-3xl overflow-hidden mb-8 bg-gradient-to-r from-orange-50 to-amber-50 dark:from-zinc-900 dark:to-zinc-800 flex items-stretch" style={{minHeight: '380px'}}>
+      <div className="relative w-full rounded-3xl overflow-hidden mb-8 bg-gradient-to-r from-orange-50 to-amber-50 dark:from-zinc-900 dark:to-zinc-800 flex items-stretch" style={{minHeight: '300px'}}>
         {/* Left: text */}
         <div className="flex-1 flex flex-col justify-center p-10 z-10">
           <h1 className="font-heading text-6xl font-bold italic leading-tight mb-2 text-accent">
@@ -76,12 +76,12 @@ export default function Home() {
         </div>
 
         {/* Right: Chef Lumi photo */}
-        <div className="flex-shrink-0 flex items-stretch" style={{width: '300px'}}>
+        <div className="flex-shrink-0 flex items-center justify-end p-4">
           <img
             src="/chef-lumi-hero2.png"
             alt="Chef Lumi"
-            className="w-full object-cover"
-            style={{objectPosition: 'center center'}}
+            className="rounded-2xl object-cover shadow-md"
+            style={{width: '200px', height: '220px', objectPosition: 'center top'}}
           />
         </div>
       </div>
