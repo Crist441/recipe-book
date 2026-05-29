@@ -46,16 +46,16 @@ export default function Home() {
   return (
     <motion.main initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} className="max-w-5xl mx-auto px-6 py-6">
       {/* Hero */}
-      <div className="relative w-full rounded-2xl overflow-hidden mb-6 bg-gradient-to-r from-orange-50 to-amber-50 dark:from-zinc-900 dark:to-zinc-800 flex items-center px-8 py-6" style={{minHeight: '240px'}}>
+      <div className="relative w-full rounded-2xl overflow-hidden mb-5 bg-gradient-to-r from-orange-50 to-amber-50 dark:from-zinc-900 dark:to-zinc-800 flex items-center px-7 py-4" style={{minHeight: '160px'}}>
         {/* Left: text */}
-        <div className="flex flex-col justify-center z-10" style={{maxWidth: '60%'}}>
-          <h1 className="font-heading text-5xl font-bold italic leading-tight mb-2 text-accent">
+        <div className="flex flex-col justify-center z-10" style={{maxWidth: '58%'}}>
+          <h1 className="font-heading text-4xl font-bold italic leading-tight mb-1 text-accent">
             Chef Lumi
           </h1>
-          <p className="font-body text-foreground text-base font-medium mb-3 leading-snug" style={{maxWidth: '340px'}}>
+          <p className="font-body text-foreground text-sm font-medium mb-2 leading-snug" style={{maxWidth: '300px'}}>
             Transform your ingredients into extraordinary meals with Chef Lumi.
           </p>
-          <p className="font-body text-muted-foreground text-sm mb-4">
+          <p className="font-body text-muted-foreground text-xs mb-3">
             {recipes.length} {recipes.length === 1 ? "recipe" : "recipes"} saved
           </p>
           <div className="flex items-center gap-2 flex-wrap">
@@ -83,7 +83,7 @@ export default function Home() {
           src="/chef-lumi-hero2.png"
           alt="Chef Lumi"
           className="absolute right-0 bottom-0"
-          style={{width: '185px', height: 'auto'}}
+          style={{width: '130px', height: 'auto'}}
         />
       </div>
 
