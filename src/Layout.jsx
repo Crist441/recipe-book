@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { ChefHat, Moon, Sun, ShoppingCart } from "lucide-react";
+import { Moon, Sun, ShoppingCart } from "lucide-react";
 import { useTheme } from "@/context/ThemeContext";
 import { ShoppingList } from "@/api/recipeStore";
 
@@ -27,11 +27,13 @@ export default function Layout({ children }) {
         <div className="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between gap-4">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 flex-shrink-0">
-            <div className="w-8 h-8 rounded-full bg-accent flex items-center justify-center">
-              <ChefHat className="w-4 h-4 text-white" />
-            </div>
-            <span className="font-heading font-bold text-foreground text-lg">
-              Chef <span className="text-accent italic">Lumi</span>
+            <img
+              src="/chef-lumi.png"
+              alt="Chef Lumi"
+              className="w-9 h-9 rounded-full object-cover object-top border-2 border-accent shadow-sm"
+            />
+            <span className="font-heading font-bold text-accent text-lg italic tracking-wide">
+              Chef Lumi
             </span>
           </Link>
 
