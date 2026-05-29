@@ -46,34 +46,24 @@ export default function Home() {
   return (
     <motion.main initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} className="max-w-5xl mx-auto px-6 py-8">
       {/* Hero */}
-      <div className="relative w-full rounded-3xl overflow-hidden mb-8 bg-muted" style={{minHeight: '220px'}}>
-        <img
-          src="/chef-lumi-hero.png"
-          alt="Chef Lumi"
-          className="absolute inset-0 w-full h-full object-cover"
-          style={{objectPosition: '50% 20%', maxHeight: '340px'}}
-        />
-        {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />
-
-        {/* Content over photo */}
-        <div className="relative z-10 flex items-end justify-between p-8 h-full" style={{minHeight: '220px'}}>
-          <div>
-            <h1 className="font-heading text-5xl font-bold text-white italic drop-shadow-lg mb-1">
-              Chef <span className="text-accent">Lumi</span>
-            </h1>
-            <p className="font-body text-white/80 text-sm">
-              {recipes.length} {recipes.length === 1 ? "recipe" : "recipes"} saved
-            </p>
-          </div>
-          <div className="flex items-center gap-2">
+      <div className="relative w-full rounded-3xl overflow-hidden mb-8 bg-gradient-to-r from-orange-50 to-amber-50 dark:from-zinc-900 dark:to-zinc-800 flex items-stretch" style={{minHeight: '260px'}}>
+        {/* Left: text */}
+        <div className="flex-1 flex flex-col justify-center p-8 z-10">
+          <h1 className="font-heading text-6xl font-bold italic leading-tight mb-2">
+            <span className="text-foreground">Chef </span>
+            <span className="text-accent">Lumi</span>
+          </h1>
+          <p className="font-body text-muted-foreground text-sm mb-6">
+            {recipes.length} {recipes.length === 1 ? "recipe" : "recipes"} saved
+          </p>
+          <div className="flex items-center gap-2 flex-wrap">
             {recipes.length === 0 && (
               <button
                 onClick={handleLoadSamples}
                 disabled={loading}
-                className="flex items-center gap-2 bg-white/20 backdrop-blur text-white font-body font-semibold text-sm px-4 py-2.5 rounded-xl hover:bg-white/30 transition-colors disabled:opacity-60"
+                className="flex items-center gap-2 bg-muted text-foreground font-body font-semibold text-sm px-4 py-2.5 rounded-xl hover:bg-muted/80 transition-colors disabled:opacity-60"
               >
-                <Sparkles className="w-4 h-4" />
+                <Sparkles className="w-4 h-4 text-accent" />
                 {loading ? "Loading…" : "Load Sample Recipes"}
               </button>
             )}
@@ -84,6 +74,16 @@ export default function Home() {
               <Plus className="w-4 h-4" /> New Recipe
             </Link>
           </div>
+        </div>
+
+        {/* Right: Chef Lumi photo */}
+        <div className="flex-shrink-0 w-56 relative">
+          <img
+            src="/chef-lumi-hero.png"
+            alt="Chef Lumi"
+            className="absolute bottom-0 right-0 h-full w-auto object-contain object-bottom"
+            style={{maxHeight: '300px'}}
+          />
         </div>
       </div>
 
