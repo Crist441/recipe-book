@@ -80,8 +80,8 @@ export default function Home() {
           <img
             src="/chef-lumi-hero2.png"
             alt="Chef Lumi"
-            className="rounded-2xl object-cover shadow-md"
-            style={{width: '160px', height: '175px', objectPosition: 'center top'}}
+            className="rounded-2xl shadow-md"
+            style={{width: '150px', height: 'auto'}}
           />
         </div>
       </div>
