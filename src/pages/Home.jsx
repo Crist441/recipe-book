@@ -50,8 +50,8 @@ export default function Home() {
         <img
           src="/chef-lumi-hero.png"
           alt="Chef Lumi"
-          className="absolute inset-0 w-full h-full object-cover object-top"
-          style={{maxHeight: '340px'}}
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{objectPosition: '50% 20%', maxHeight: '340px'}}
         />
         {/* Gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />
