@@ -46,9 +46,9 @@ export default function Home() {
   return (
     <motion.main initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} className="max-w-5xl mx-auto px-6 py-8">
       {/* Hero */}
-      <div className="relative w-full rounded-3xl overflow-hidden mb-8 bg-gradient-to-r from-orange-50 to-amber-50 dark:from-zinc-900 dark:to-zinc-800 flex items-stretch" style={{minHeight: '260px'}}>
+      <div className="relative w-full rounded-3xl overflow-hidden mb-8 bg-gradient-to-r from-orange-50 to-amber-50 dark:from-zinc-900 dark:to-zinc-800 flex items-stretch" style={{minHeight: '380px'}}>
         {/* Left: text */}
-        <div className="flex-1 flex flex-col justify-center p-8 z-10">
+        <div className="flex-1 flex flex-col justify-center p-10 z-10">
           <h1 className="font-heading text-6xl font-bold italic leading-tight mb-2">
             <span className="text-foreground">Chef </span>
             <span className="text-accent">Lumi</span>
@@ -76,13 +76,13 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Right: Chef Lumi photo */}
-        <div className="flex-shrink-0 w-56 relative">
+        {/* Right: Chef Lumi photo — full portrait */}
+        <div className="flex-shrink-0 flex items-end justify-end" style={{width: '280px'}}>
           <img
             src="/chef-lumi-hero.png"
             alt="Chef Lumi"
-            className="absolute bottom-0 right-0 h-full w-auto object-contain object-bottom"
-            style={{maxHeight: '300px'}}
+            className="w-full h-full object-cover"
+            style={{objectPosition: 'center top', height: '380px'}}
           />
         </div>
       </div>
