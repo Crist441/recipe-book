@@ -48,8 +48,8 @@ export default function Home() {
       {/* Header */}
       <div className="flex items-center justify-between mb-8">
         <div>
-          <h1 className="font-heading text-4xl font-bold text-foreground">
-            Chef <span className="text-accent italic">Lumi</span>
+          <h1 className="font-heading text-4xl font-bold text-accent italic">
+            Chef Lumi
           </h1>
           <p className="font-body text-muted-foreground mt-1">
             {recipes.length} {recipes.length === 1 ? "recipe" : "recipes"} saved
