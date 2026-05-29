@@ -45,33 +45,45 @@ export default function Home() {
 
   return (
     <motion.main initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} className="max-w-5xl mx-auto px-6 py-8">
-      {/* Header */}
-      <div className="flex items-center justify-between mb-8">
-        <div>
-          <h1 className="font-heading text-4xl font-bold text-accent italic">
-            Chef Lumi
-          </h1>
-          <p className="font-body text-muted-foreground mt-1">
-            {recipes.length} {recipes.length === 1 ? "recipe" : "recipes"} saved
-          </p>
-        </div>
-        <div className="flex items-center gap-2">
-          {recipes.length === 0 && (
-            <button
-              onClick={handleLoadSamples}
-              disabled={loading}
-              className="flex items-center gap-2 bg-muted text-foreground font-body font-semibold text-sm px-4 py-2.5 rounded-xl hover:bg-muted/80 transition-colors disabled:opacity-60"
+      {/* Hero */}
+      <div className="relative w-full rounded-3xl overflow-hidden mb-8 bg-muted" style={{minHeight: '220px'}}>
+        <img
+          src="/chef-lumi-hero.png"
+          alt="Chef Lumi"
+          className="absolute inset-0 w-full h-full object-cover object-top"
+          style={{maxHeight: '340px'}}
+        />
+        {/* Gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />
+
+        {/* Content over photo */}
+        <div className="relative z-10 flex items-end justify-between p-8 h-full" style={{minHeight: '220px'}}>
+          <div>
+            <h1 className="font-heading text-5xl font-bold text-white italic drop-shadow-lg mb-1">
+              Chef <span className="text-accent">Lumi</span>
+            </h1>
+            <p className="font-body text-white/80 text-sm">
+              {recipes.length} {recipes.length === 1 ? "recipe" : "recipes"} saved
+            </p>
+          </div>
+          <div className="flex items-center gap-2">
+            {recipes.length === 0 && (
+              <button
+                onClick={handleLoadSamples}
+                disabled={loading}
+                className="flex items-center gap-2 bg-white/20 backdrop-blur text-white font-body font-semibold text-sm px-4 py-2.5 rounded-xl hover:bg-white/30 transition-colors disabled:opacity-60"
+              >
+                <Sparkles className="w-4 h-4" />
+                {loading ? "Loading…" : "Load Sample Recipes"}
+              </button>
+            )}
+            <Link
+              to="/add"
+              className="flex items-center gap-2 bg-accent text-accent-foreground font-body font-semibold text-sm px-5 py-2.5 rounded-xl hover:bg-accent/90 transition-colors"
             >
-              <Sparkles className="w-4 h-4 text-accent" />
-              {loading ? "Loading…" : "Load Sample Recipes"}
-            </button>
-          )}
-          <Link
-            to="/add"
-            className="flex items-center gap-2 bg-accent text-accent-foreground font-body font-semibold text-sm px-5 py-2.5 rounded-xl hover:bg-accent/90 transition-colors"
-          >
-            <Plus className="w-4 h-4" /> New Recipe
-          </Link>
+              <Plus className="w-4 h-4" /> New Recipe
+            </Link>
+          </div>
         </div>
       </div>
 
