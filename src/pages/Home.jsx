@@ -46,9 +46,9 @@ export default function Home() {
   return (
     <motion.main initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} className="max-w-5xl mx-auto px-6 py-6">
       {/* Hero */}
-      <div className="relative w-full rounded-2xl overflow-hidden mb-6 bg-gradient-to-r from-orange-50 to-amber-50 dark:from-zinc-900 dark:to-zinc-800 flex items-center px-8 py-5 gap-6">
+      <div className="relative w-full rounded-2xl mb-6 bg-gradient-to-r from-orange-50 to-amber-50 dark:from-zinc-900 dark:to-zinc-800 flex items-center pr-48 px-8 py-6">
         {/* Left: text */}
-        <div className="flex-1 flex flex-col justify-center z-10">
+        <div className="flex flex-col justify-center z-10">
           <h1 className="font-heading text-5xl font-bold italic leading-tight mb-1 text-accent">
             Chef Lumi
           </h1>
@@ -75,15 +75,13 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Right: Chef Lumi photo */}
-        <div className="flex-shrink-0">
-          <img
-            src="/chef-lumi-hero2.png"
-            alt="Chef Lumi"
-            className="rounded-2xl shadow-md"
-            style={{width: '150px', height: 'auto'}}
-          />
-        </div>
+        {/* Right: Chef Lumi photo — absolute so it never gets clipped */}
+        <img
+          src="/chef-lumi-hero2.png"
+          alt="Chef Lumi"
+          className="absolute right-6 bottom-0 rounded-xl shadow-lg"
+          style={{width: '160px', height: 'auto'}}
+        />
       </div>
 
       {/* Filters */}
