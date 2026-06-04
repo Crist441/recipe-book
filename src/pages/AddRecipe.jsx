@@ -1,17 +1,19 @@
-import { useState } from "react";
+﻿import { useState } from "react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { Recipe } from "@/api/recipeStore";
 import { Link, useNavigate } from "react-router-dom";
-import { ArrowLeft, Plus, Loader2 } from "lucide-react";
+import { ArrowLeft, Plus, Loader2, Camera } from "lucide-react";
 import ImageUpload from "@/components/recipe/ImageUpload";
 import IngredientFormRow from "@/components/recipe/IngredientFormRow";
 import StepFormRow from "@/components/recipe/StepFormRow";
 import { motion } from "framer-motion";
+import IngredientScanner from "@/components/recipe/IngredientScanner";
 
 const emptyIngredient = { name: "", amount: "", tip: "", category: "Vegetable" };
 
 export default function AddRecipe() {
   const navigate = useNavigate();
+  const [showScanner, setShowScanner] = useState(false);
   const queryClient = useQueryClient();
 
   const [form, setForm] = useState({
@@ -58,6 +60,15 @@ export default function AddRecipe() {
   const removeStep = (i) =>
     setForm((f) => ({ ...f, steps: f.steps.filter((_, idx) => idx !== i) }));
 
+  const handleScannedIngredients = (detected) => {
+    setForm((f) => {
+      const existing = f.ingredients.map((i) => i.name.toLowerCase());
+      const newOnes = detected.filter((name) => !existing.includes(name.toLowerCase())).map((name) => ({ ...emptyIngredient, name }));
+      const base = f.ingredients.filter((i) => i.name);
+      return { ...f, ingredients: [...base, ...newOnes, { ...emptyIngredient }] };
+    });
+    setShowScanner(false);
+  };
   const handleSubmit = () => {
     const data = {
       title: form.title || "Untitled Recipe",
@@ -180,6 +191,13 @@ export default function AddRecipe() {
         <div className="flex items-center justify-between mb-3">
           <h3 className="font-heading text-lg font-bold text-foreground">Ingredients</h3>
           <button
+              type="button"
+              onClick={() => setShowScanner(true)}
+              className="flex items-center gap-1.5 border border-accent text-accent text-sm font-body font-semibold px-4 py-2 rounded-lg hover:bg-accent/10 transition-colors"
+            >
+              <Camera className="w-4 h-4" /> Scan Photo
+            </button>
+            <button
             type="button"
             onClick={() =>
               setForm((f) => ({ ...f, ingredients: [...f.ingredients, { ...emptyIngredient }] }))
@@ -250,6 +268,7 @@ export default function AddRecipe() {
         {createMutation.isPending && <Loader2 className="w-5 h-5 animate-spin" />}
         Publish Recipe
       </button>
+    {showScanner && (<IngredientScanner onIngredientsDetected={handleScannedIngredients} onClose={() => setShowScanner(false)} />)}
     </motion.main>
   );
 }
