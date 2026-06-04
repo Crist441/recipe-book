@@ -32,13 +32,27 @@ export default function AddRecipe() {
   const updateStep = (i, val) => setForm((f) => { const arr = [...f.steps]; arr[i] = val; return { ...f, steps: arr }; });
   const removeStep = (i) => setForm((f) => ({ ...f, steps: f.steps.filter((_, idx) => idx !== i) }));
 
-  const handleScannedIngredients = (detected) => {
-    setForm((f) => {
-      const existing = f.ingredients.map((i) => i.name.toLowerCase());
-      const newOnes = detected.filter((name) => !existing.includes(name.toLowerCase())).map((name) => ({ ...emptyIngredient, name }));
-      const base = f.ingredients.filter((i) => i.name);
-      return { ...f, ingredients: [...base, ...newOnes, { ...emptyIngredient }] };
-    });
+  const handleScannedIngredients = (detected, recipe) => {
+    if (recipe) {
+      setForm({
+        title: recipe.title,
+        subtitle: recipe.subtitle,
+        time: recipe.time,
+        servings: recipe.servings,
+        difficulty: recipe.difficulty,
+        tags: recipe.tags,
+        image_url: "",
+        ingredients: [...recipe.ingredients, { ...emptyIngredient }],
+        steps: recipe.steps,
+      });
+    } else {
+      setForm((f) => {
+        const existing = f.ingredients.map((i) => i.name.toLowerCase());
+        const newOnes = detected.filter((name) => !existing.includes(name.toLowerCase())).map((name) => ({ ...emptyIngredient, name }));
+        const base = f.ingredients.filter((i) => i.name);
+        return { ...f, ingredients: [...base, ...newOnes, { ...emptyIngredient }] };
+      });
+    }
     setShowScanner(false);
   };
 
