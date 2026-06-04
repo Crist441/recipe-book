@@ -77,7 +77,22 @@ export default function AddRecipe() {
       <h1 className="font-heading text-3xl font-bold text-foreground mb-1">Add New Recipe</h1>
       <p className="font-body text-sm text-muted-foreground mb-8">Fill in the details below. Add tips to each ingredient to help readers understand the dish better.</p>
       <div className="mb-8">
-        <ImageUpload imageUrl={form.image_url || scannedImage} onImageUploaded={(url) => updateField("image_url", url)} height="h-52" />
+        <div className="relative w-full h-52 rounded-2xl border-2 border-dashed border-border overflow-hidden">
+          {(form.image_url || scannedImage) ? (
+            <img src={form.image_url || scannedImage} alt="Recipe" className="w-full h-full object-cover" />
+          ) : (
+            <label className="flex flex-col items-center justify-center w-full h-full cursor-pointer gap-2">
+              <span className="text-sm font-body text-muted-foreground">Click or drag to upload photo</span>
+              <input type="file" accept="image/*" className="hidden" onChange={(e) => {
+                const file = e.target.files[0];
+                if (!file) return;
+                const reader = new FileReader();
+                reader.onload = (ev) => updateField("image_url", ev.target.result);
+                reader.readAsDataURL(file);
+              }} />
+            </label>
+          )}
+        </div>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
         <div className="sm:col-span-2">

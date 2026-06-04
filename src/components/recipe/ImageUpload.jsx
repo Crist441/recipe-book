@@ -7,7 +7,7 @@ export default function ImageUpload({ imageUrl, onImageUploaded, height = "h-48"
   const handleFile = (file) => {
     if (!file || !file.type.startsWith("image/")) return;
     const reader = new FileReader();
-    reader.onload = (e) => onImageUploaded(e.target.result);
+    reader.onload = (e) => { onImageUploaded(e.target.result); };
     reader.readAsDataURL(file);
   };
 
@@ -28,7 +28,7 @@ export default function ImageUpload({ imageUrl, onImageUploaded, height = "h-48"
     >
       {imageUrl ? (
         <>
-          <img src={imageUrl} alt="Recipe" className="w-full h-full object-cover" />
+          <img src={imageUrl} alt="Recipe" className="w-full h-full object-cover" onError={(e) => e.target.style.display="none"} />
           <button
             type="button"
             onClick={() => onImageUploaded("")}
