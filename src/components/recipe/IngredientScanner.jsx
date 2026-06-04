@@ -2,7 +2,7 @@
 // tmImage loaded via CDN in index.html
 import { Camera, X, Search, Sparkles } from "lucide-react";
 
-const MODEL_URL = "https://teachablemachine.withgoogle.com/models/0inIhmR42/";
+const MODEL_URL = "/model/";
 
 export default function IngredientScanner({ onIngredientsDetected, onClose }) {
   const [model, setModel] = useState(null);
