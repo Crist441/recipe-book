@@ -15,6 +15,7 @@ export default function AddRecipe() {
   const navigate = useNavigate();
   const queryClient = useQueryClient();
   const [showScanner, setShowScanner] = useState(false);
+  const [scannedImage, setScannedImage] = useState(null);
   const [form, setForm] = useState({
     title: "", subtitle: "", time: "", servings: "",
     difficulty: "Easy", tags: "", image_url: "",
@@ -32,7 +33,6 @@ export default function AddRecipe() {
   const updateStep = (i, val) => setForm((f) => { const arr = [...f.steps]; arr[i] = val; return { ...f, steps: arr }; });
   const removeStep = (i) => setForm((f) => ({ ...f, steps: f.steps.filter((_, idx) => idx !== i) }));
 
-  const [scannedImage, setScannedImage] = useState(null);
   const handleScannedIngredients = (detected, recipe, imageUrl) => {
     if (recipe) {
       if (imageUrl) setScannedImage(imageUrl);
