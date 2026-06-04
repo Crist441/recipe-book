@@ -35,7 +35,6 @@ export default function AddRecipe() {
 
   const handleScannedIngredients = (detected, recipe, imageUrl) => {
     if (recipe) {
-      if (imageUrl) setScannedImage(imageUrl);
       setForm({
         title: recipe.title,
         subtitle: recipe.subtitle,
@@ -78,14 +77,7 @@ export default function AddRecipe() {
       <h1 className="font-heading text-3xl font-bold text-foreground mb-1">Add New Recipe</h1>
       <p className="font-body text-sm text-muted-foreground mb-8">Fill in the details below. Add tips to each ingredient to help readers understand the dish better.</p>
       <div className="mb-8">
-        {scannedImage && !form.image_url ? (
-          <div className="relative w-full h-52 rounded-2xl overflow-hidden border border-border">
-            <img src={scannedImage} alt="Scanned dish" className="w-full h-full object-cover" />
-            <button onClick={() => setScannedImage(null)} className="absolute top-2 right-2 bg-black/50 text-white rounded-full p-1 text-xs">✕</button>
-          </div>
-        ) : (
-          <ImageUpload imageUrl={form.image_url} onImageUploaded={(url) => { updateField("image_url", url); setScannedImage(null); }} height="h-52" />
-        )}
+        <ImageUpload imageUrl={form.image_url || scannedImage} onImageUploaded={(url) => updateField("image_url", url)} height="h-52" />
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
         <div className="sm:col-span-2">
