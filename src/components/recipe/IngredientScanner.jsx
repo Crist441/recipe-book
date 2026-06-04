@@ -134,7 +134,7 @@ export default function IngredientScanner({ onIngredientsDetected, onClose }) {
       const detected = results.filter(p=>p.probability>0.5).map(p=>({name:p.className,confidence:Math.round(p.probability*100)})).sort((a,b)=>b.confidence-a.confidence);
       setPredictions(detected);
       if (onIngredientsDetected && detected.length>0) {
-        const topDish = detected[0].name.toLowerCase().replace(' ', '_');
+        const topDish = detected[0].name.toLowerCase().replace(/ /g, '_');
         const recipe = RECIPES[topDish] || null;
         onIngredientsDetected(detected.map(d=>d.name), recipe, preview);
       }
