@@ -1,5 +1,5 @@
 ﻿import { useRef, useState } from "react";
-import * as tmImage from "@teachablemachine/image";
+// tmImage loaded via CDN in index.html
 import { Camera, X, Search, Sparkles } from "lucide-react";
 
 const MODEL_URL = "https://teachablemachine.withgoogle.com/models/0inIhmR42/";
@@ -16,7 +16,7 @@ export default function IngredientScanner({ onIngredientsDetected, onClose }) {
     setLoading(true); setError(null);
     try {
       let m = model;
-      if (!m) { m = await tmImage.load(MODEL_URL+"model.json", MODEL_URL+"metadata.json"); setModel(m); }
+      if (!m) { m = await window.tmImage.load(MODEL_URL+"model.json", MODEL_URL+"metadata.json"); setModel(m); }
       const results = await m.predict(imgElement);
       const detected = results.filter(p=>p.probability>0.5).map(p=>({name:p.className,confidence:Math.round(p.probability*100)})).sort((a,b)=>b.confidence-a.confidence);
       setPredictions(detected);
