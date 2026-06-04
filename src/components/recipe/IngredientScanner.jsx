@@ -136,7 +136,7 @@ export default function IngredientScanner({ onIngredientsDetected, onClose }) {
       if (onIngredientsDetected && detected.length>0) {
         const topDish = detected[0].name.toLowerCase().replace(' ', '_');
         const recipe = RECIPES[topDish] || null;
-        onIngredientsDetected(detected.map(d=>d.name), recipe);
+        onIngredientsDetected(detected.map(d=>d.name), recipe, preview);
       }
     } catch { setError("Failed to analyze image."); } finally { setLoading(false); }
   };

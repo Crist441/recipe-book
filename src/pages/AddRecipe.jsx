@@ -32,7 +32,7 @@ export default function AddRecipe() {
   const updateStep = (i, val) => setForm((f) => { const arr = [...f.steps]; arr[i] = val; return { ...f, steps: arr }; });
   const removeStep = (i) => setForm((f) => ({ ...f, steps: f.steps.filter((_, idx) => idx !== i) }));
 
-  const handleScannedIngredients = (detected, recipe) => {
+  const handleScannedIngredients = (detected, recipe, imageUrl) => {
     if (recipe) {
       setForm({
         title: recipe.title,
@@ -41,7 +41,7 @@ export default function AddRecipe() {
         servings: recipe.servings,
         difficulty: recipe.difficulty,
         tags: recipe.tags,
-        image_url: "",
+        image_url: imageUrl || "",
         ingredients: [...recipe.ingredients, { ...emptyIngredient }],
         steps: recipe.steps,
       });
