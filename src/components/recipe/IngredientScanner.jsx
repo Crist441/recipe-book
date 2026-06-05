@@ -6,10 +6,10 @@ const MODEL_URL = "https://teachablemachine.withgoogle.com/models/_h7uegWmm/";
 
 
 const DISH_PHOTOS = {
-  feijoada: 'https://images.unsplash.com/photo-1599021419847-d8a7a6aba5b4?w=800',
-  pasta: 'https://images.unsplash.com/photo-1555949258-eb67b1ef0ceb?w=800',
-  salad: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=800',
-  grilled_chicken: 'https://images.unsplash.com/photo-1598103442097-8b74394b95c2?w=800',
+  feijoada: 'https://images.unsplash.com/photo-1547592180-85f173990554?w=800&auto=format&fit=crop',
+  pasta: 'https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=800&auto=format&fit=crop',
+  salad: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=800&auto=format&fit=crop',
+  grilled_chicken: 'https://images.unsplash.com/photo-1532550907401-a500c9a57435?w=800&auto=format&fit=crop',
 };
 
 const RECIPES = {
