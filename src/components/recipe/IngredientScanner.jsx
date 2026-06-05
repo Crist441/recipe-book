@@ -6,10 +6,10 @@ const MODEL_URL = "https://teachablemachine.withgoogle.com/models/_h7uegWmm/";
 
 
 const DISH_PHOTOS = {
-  feijoada: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Feijoada_Brasileira.jpg/800px-Feijoada_Brasileira.jpg',
-  pasta: 'https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=800&auto=format&fit=crop',
-  salad: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=800&auto=format&fit=crop',
-  grilled_chicken: 'https://images.unsplash.com/photo-1532550907401-a500c9a57435?w=800&auto=format&fit=crop',
+  feijoada: '/dish-photos/feijoada.jpg',
+  pasta: '/dish-photos/pasta.jpg',
+  salad: '/dish-photos/salad.jpg',
+  grilled_chicken: '/dish-photos/grilled_chicken.jpg',
 };
 
 const RECIPES = {
