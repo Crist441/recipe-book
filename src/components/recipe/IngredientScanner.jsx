@@ -5,6 +5,13 @@ import { Camera, X, Search, Sparkles } from "lucide-react";
 const MODEL_URL = "https://teachablemachine.withgoogle.com/models/_h7uegWmm/";
 
 
+const DISH_PHOTOS = {
+  feijoada: 'https://images.unsplash.com/photo-1599021419847-d8a7a6aba5b4?w=800',
+  pasta: 'https://images.unsplash.com/photo-1555949258-eb67b1ef0ceb?w=800',
+  salad: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=800',
+  grilled_chicken: 'https://images.unsplash.com/photo-1598103442097-8b74394b95c2?w=800',
+};
+
 const RECIPES = {
   feijoada: {
     title: "Feijoada Brasileira",
@@ -136,7 +143,8 @@ export default function IngredientScanner({ onIngredientsDetected, onClose }) {
       if (onIngredientsDetected && detected.length>0) {
         const topDish = detected[0].name.toLowerCase().replace(/ /g, '_');
         const recipe = RECIPES[topDish] || null;
-        onIngredientsDetected(detected.map(d=>d.name), recipe, preview);
+        const photoUrl = DISH_PHOTOS[topDish] || preview;
+        onIngredientsDetected(detected.map(d=>d.name), recipe, photoUrl);
       }
     } catch { setError("Failed to analyze image."); } finally { setLoading(false); }
   };
