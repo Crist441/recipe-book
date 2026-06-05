@@ -34,6 +34,7 @@ export default function AddRecipe() {
   const removeStep = (i) => setForm((f) => ({ ...f, steps: f.steps.filter((_, idx) => idx !== i) }));
 
   const handleScannedIngredients = (detected, recipe, imageUrl) => {
+    console.log('imageUrl received:', imageUrl ? imageUrl.substring(0, 50) : 'NONE');
     if (imageUrl) setScannedImage(imageUrl);
     if (recipe) {
       setForm({
