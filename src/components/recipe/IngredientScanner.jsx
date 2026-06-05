@@ -6,7 +6,7 @@ const MODEL_URL = "https://teachablemachine.withgoogle.com/models/_h7uegWmm/";
 
 
 const DISH_PHOTOS = {
-  feijoada: 'https://images.unsplash.com/photo-1593252719532-53f183016149?w=800&auto=format&fit=crop',
+  feijoada: 'https://images.unsplash.com/photo-1645696301919-b5db4e197a0a?w=800&auto=format&fit=crop',
   pasta: 'https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=800&auto=format&fit=crop',
   salad: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=800&auto=format&fit=crop',
   grilled_chicken: 'https://images.unsplash.com/photo-1532550907401-a500c9a57435?w=800&auto=format&fit=crop',
